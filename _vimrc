@@ -1,6 +1,7 @@
-" Vim setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
 set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
@@ -30,8 +31,9 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-
-" Language setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Language Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 filetype plugin indent on
 set expandtab
@@ -39,19 +41,26 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set nrformats=
-
-" File setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => File Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nobackup
 set history=200
 set sc
 set clipboard=unnamed
 set fdm=indent
 cnoremap <expr> %% getcmdtype()==':'?expand('%:h').'/':'%%' 
-
-" Window setting
+set magic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Window setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme grb256
 set guifont=Microsoft_YaHei_Mono:h14:cANSI
 set gfw=Microsoft_YaHei_Mono:h13:cGB2312
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set encoding=utf-8
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
 set guioptions-=l
 set guioptions-=L
 set guioptions-=r
@@ -65,8 +74,12 @@ set cursorline
 set hlsearch
 :hi Folded guibg=black guifg=grey40 ctermfg=grey ctermbg=darkgrey
 :hi FoldColumn guibg=black guifg=grey20 ctermfg=4 ctermbg=7
-
-" Keyboard mapping setting
+set wildmenu
+set noerrorbells
+set novisualbell
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Keyboard Mapping
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 nnoremap k gk
@@ -81,8 +94,9 @@ function! s:VSetSearch()
 	let @/='\v' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
 	let @s = temp
 endfunction
-
-" Plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags
 set tags=tags;
 set autochdir

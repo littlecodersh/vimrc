@@ -31,6 +31,7 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
+set backspace=eol,start,indent
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,8 +81,6 @@ set novisualbell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keyboard Mapping
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 nnoremap k gk
 nnoremap gk k
 nnoremap j gj
@@ -122,6 +121,18 @@ nmap wm :WMToggle<cr>:q<cr>
 let g:miniBufExplMapWindowNavVim = 1
 " Jedi-vim
 " let g:jedi#auto_initialization = 0
+" vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-j>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<C-n>'
+let g:multi_cursor_quit_key='<C-l>'
+" nerdcommenter
+let g:NERDSpaceDelims = 0
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
 " Vundle
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 call vundle#begin('$USERPROFILE/vimfiles/bundle/')
@@ -134,4 +145,6 @@ Plugin 'taglist.vim'
 Plugin 'winmanager'
 Plugin 'minibufexpl.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()

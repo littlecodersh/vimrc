@@ -96,31 +96,30 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctags
-set tags=tags;
-set autochdir
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_WinWidth=20
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_whitelist = { 'html': 1, 'cpp': 1 }
+let g:ycm_confirm_extra_conf = 0
+" jedi-vim
+"let g:jedi#force_py_version = 2
+" vim-markdown
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_folding_level = 6
+set conceallevel=2
 " NerdTree
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-" Taglist
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let g:NERDTree_title='NERD Tree'  
-function! NERDTree_Start()  
-    exec 'NERDTree'  
-endfunction  
-function! NERDTree_IsValid()  
-    return 1  
-endfunction 
-let g:winManagerWindowLayout='NERDTree|TagList'
-nmap wm :WMToggle<cr>:q<cr>
-" Header
+" minibufexpl
 let g:miniBufExplMapWindowNavVim = 1
-" Jedi-vim
-" let g:jedi#auto_initialization = 0
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-j>'
@@ -137,14 +136,17 @@ let g:NERDTrimTrailingWhitespace = 1
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 call vundle#begin('$USERPROFILE/vimfiles/bundle/')
 Plugin 'VundleVim/Vundle.vim'
-Bundle 'davidhalter/jedi-vim'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
-Plugin 'taglist.vim'
 Plugin 'winmanager'
 Plugin 'minibufexpl.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/jsbeautify'
+Plugin 'ternjs/tern_for_vim'
 call vundle#end()
